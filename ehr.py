@@ -33,12 +33,12 @@ def main():
 
     elif choice == "DISPLAY":
 
-        with st.beta_expander("VIEW ALL"):
+        with st.expander("VIEW ALL"):
             result = view_all_data()
             df = pd.DataFrame(result, columns=["NAME", "GENDER", "DOB", "CONTACT", "BLOOD GROUP", "PATIENT HISTORY", "DOCTOR NAME"])
             st.dataframe(df)
 
-        with st.beta_expander("RECORD ANALYSIS"):
+        with st.expander("RECORD ANALYSIS"):
             gender_df = df['GENDER'].value_counts().to_frame()
             gender_df = gender_df.reset_index()
             st.dataframe(gender_df)
@@ -55,7 +55,7 @@ def main():
 
     elif choice == "UPDATE":
         st.subheader("EDIT PATIENT DETAILS")
-        with st.beta_expander("CURRENT DATA"):
+        with st.expander("CURRENT DATA"):
             result = view_all_data()
             df = pd.DataFrame(result, columns=["NAME", "GENDER", "DOB", "CONTACT", "BLOOD GROUP", "PATIENT HISTORY", "DOCTOR NAME"])
             st.dataframe(df)
@@ -92,14 +92,14 @@ def main():
                 edit_name_data(new_name, new_gender, new_dob, new_contact, new_blood_group, new_pat_his, new_doc_name, name, gender, dob, contact, blood_group, pat_his, doc_name)
                 st.success("SUCCESSFULLY UPDATED: {}".format(name))
 
-            with st.beta_expander("UPDATED DATA"):
+            with st.expander("UPDATED DATA"):
                 result = view_all_data()
                 df = pd.DataFrame(result, columns=["NAME", "GENDER", "DOB", "CONTACT", "BLOOD GROUP", "PATIENT HISTORY", "DOCTOR NAME"])
                 st.dataframe(df)
 
     elif choice == "DELETE":
         st.subheader("DELETE PATIENT DETAILS")
-        with st.beta_expander("VIEW DATA"):
+        with st.expander("VIEW DATA"):
             result = view_all_data()
             df = pd.DataFrame(result, columns=["NAME", "GENDER", "DOB", "CONTACT", "BLOOD GROUP", "PATIENT HISTORY", "DOCTOR NAME"])
             st.dataframe(df)
@@ -110,7 +110,7 @@ def main():
             delete_data(delete_by_data_name)
             st.warning("DELETED: '{}'".format(delete_by_data_name))
 
-        with st.beta_expander("UPDATED DATA"):
+        with st.expander("UPDATED DATA"):
             result = view_all_data()
             df = pd.DataFrame(result, columns=["NAME", "GENDER", "DOB", "CONTACT", "BLOOD GROUP", "PATIENT HISTORY", "DOCTOR NAME"])
             st.dataframe(df)
