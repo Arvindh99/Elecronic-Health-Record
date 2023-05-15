@@ -1,7 +1,7 @@
-pip install plotly
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+plotly.__version__
 from PIL import Image
 from ehr_db import create_table, add_data, view_all_data, view_all_data_names, get_name, edit_name_data, delete_data
 
