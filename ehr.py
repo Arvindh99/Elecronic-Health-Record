@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+# import plotly.express as px
+import matplotlib.pyplot as plt
 import plotly
 from PIL import Image
 from ehr_db import create_table, add_data, view_all_data, view_all_data_names, get_name, edit_name_data, delete_data
@@ -44,14 +45,14 @@ def main():
             gender_df = gender_df.reset_index()
             st.dataframe(gender_df)
 
-            p2 = px.pie(gender_df, names='index', values='GENDER')
+            p2 = plt.pie(gender_df, names='index', values='GENDER')
             st.plotly_chart(p2, use_container_width=True)
 
             bloodgroup_df = df['BLOOD GROUP'].value_counts().to_frame()
             bloodgroup_df = bloodgroup_df.reset_index()
             st.dataframe(bloodgroup_df)
 
-            p2 = px.pie(bloodgroup_df, names='index', values='BLOOD GROUP')
+            p2 = plt.pie(bloodgroup_df, names='index', values='BLOOD GROUP')
             st.plotly_chart(p2, use_container_width=True)
 
     elif choice == "UPDATE":
