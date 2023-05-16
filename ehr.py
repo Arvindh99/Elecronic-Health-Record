@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 import plotly
+import plotly.express as px
 from PIL import Image
 from ehr_db import create_table, add_data, view_all_data, view_all_data_names, get_name, edit_name_data, delete_data
 
